@@ -1,0 +1,12 @@
+<h2>Get Directions</h2>
+<form method="POST">
+  {% csrf_token %}
+  <label>Starting Location:</label>
+  <input type="text" name="origin" required><br><br>
+
+  <label>Destination:</label>
+  <input type="text" name="destination" required><br><br>
+
+  <button type="submit">Get Directions</button>
+</form>
+
