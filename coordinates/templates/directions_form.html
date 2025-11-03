@@ -1,12 +1,16 @@
 <h2>Get Directions</h2>
+
+{% if error %}
+  <p style="color:red;">{{ error }}</p>
+{% endif %}
+
 <form method="POST">
   {% csrf_token %}
-  <label>Starting Location:</label>
-  <input type="text" name="origin" required><br><br>
+  <label for="origin">Starting Location:</label><br>
+  <input type="text" name="origin" id="origin" required><br><br>
 
-  <label>Destination:</label>
-  <input type="text" name="destination" required><br><br>
+  <label for="destination">Destination:</label><br>
+  <input type="text" name="destination" id="destination" required><br><br>
 
   <button type="submit">Get Directions</button>
 </form>
-

@@ -1,18 +1,22 @@
 {% if result.error %}
   <p style="color:red;">Error: {{ result.error }}</p>
 {% else %}
+  <h2>Route Summary</h2>
   <p><strong>From:</strong> {{ result.origin }}</p>
   <p><strong>To:</strong> {{ result.destination }}</p>
   <p><strong>Duration:</strong> {{ result.duration }} seconds</p>
   <p><strong>Distance:</strong> {{ result.distance }} meters</p>
 
-  <h3>Steps:</h3>
-  <ul>
-    {% for step in result.steps %}
-      <li>{{ step.instruction }} ({{ step.distance }} m)</li>
-    {% endfor %}
-  </ul>
+  {% if result.steps %}
+    <h3>Step-by-Step Directions:</h3>
+    <ul>
+      {% for step in result.steps %}
+        <li>{{ step.instruction }} ({{ step.distance }} meters)</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No step-by-step directions available.</p>
+  {% endif %}
 {% endif %}
 
 <a href="{% url 'directions_view' %}">Search again</a>
-

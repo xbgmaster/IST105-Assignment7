@@ -1,6 +1,8 @@
-import requests
 import json
+import requests
+import os
 import sys
+
 
 # ==============================================
 # Step 3: Create Variables for API Request
